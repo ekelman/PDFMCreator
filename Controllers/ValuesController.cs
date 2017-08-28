@@ -38,11 +38,6 @@ namespace PDFMCreator.Controllers
                 fields.TryGetValue("Client Name", out toSet);
                 toSet.SetValue("James Bond");
                 pdf.Close();
-                // PdfStamper pdfStamper = new PdfStamper(pdfReader, outFile);
-                // AcroFields fields = pdfStamper.AcroFields;
-                // fields.SetField("Client Name", application.FirstName + " " + application.LastName);
-                // pdfStamper.Close();
-                // pdfReader.Close();
             }
             return new string[] { "value1", "value2" };
         }
