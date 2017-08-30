@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using PDFMCreator.Interfaces;
+using PDFMCreator.Services;
 
 namespace PDFMCreator
 {
@@ -29,6 +31,7 @@ namespace PDFMCreator
         {
             // Add framework services.
             services.AddMvc();
+            services.AddScoped<IPDFProcessor, PDFProcessor>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

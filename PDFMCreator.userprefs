@@ -1,7 +1,9 @@
 ﻿<Properties StartupConfiguration="{0395FADA-28D2-49D9-AD5C-DD72BCA17847}|Default">
   <MonoDevelop.Ide.Workbench ActiveDocument="PDFMCreator Status">
     <Files>
-      <File FileName="Controllers/ValuesController.cs" Line="40" Column="29" />
+      <File FileName="Controllers/ValuesController.cs" Line="35" Column="13" />
+      <File FileName="Services/PDFProcessor.cs" Line="15" Column="6" />
+      <File FileName="Interfaces/IPDFProcessor.cs" Line="9" Column="15" />
       <File FileName="PDFMCreator Status" />
     </Files>
   </MonoDevelop.Ide.Workbench>

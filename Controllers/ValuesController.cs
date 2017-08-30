@@ -9,6 +9,8 @@ using iText.Forms.Fields;
 using iText.Kernel.Pdf;
 using iText.Layout;
 using Microsoft.AspNetCore.Hosting;
+using PDFMCreator.Services;
+using PDFMCreator.Interfaces;
 
 namespace PDFMCreator.Controllers
 {
@@ -16,19 +18,28 @@ namespace PDFMCreator.Controllers
     public class ValuesController : Controller
     {
         private readonly IHostingEnvironment _hostingEnvironment;
+        private IPDFProcessor _pdfprocessor;
 
-        public ValuesController(IHostingEnvironment hostingEnvironment)
+        public ValuesController(IHostingEnvironment hostingEnvironment, IPDFProcessor pdfprocessor)
         {
             _hostingEnvironment = hostingEnvironment;
+            _pdfprocessor = pdfprocessor;
         }
-        
+
         // GET api/values
         [HttpGet]
         public IEnumerable<string> Get()
         {
+            NewMethod();
+            //return _pdfprocessor.GetPdfFields();
+            return new string[] { "value1", "value2" };
+        }
+
+        private void NewMethod()
+        {
             //string webRootPath = _hostingEnvironment.WebRootPath;
             String src = _hostingEnvironment.ContentRootPath + "/Docs/BLGLegal Intake Form AcroForm.pdf";
-            String dest = _hostingEnvironment.ContentRootPath + "/Docs/BLGLegal Intake Form AcroForm Filled.pdf";;
+            String dest = _hostingEnvironment.ContentRootPath + "/Docs/BLGLegal Intake Form AcroForm Filled.pdf"; ;
 
             using (PdfDocument pdf = new PdfDocument(new PdfReader(src), new PdfWriter(dest)))
             {
@@ -39,7 +50,6 @@ namespace PDFMCreator.Controllers
                 toSet.SetValue("James Bond");
                 pdf.Close();
             }
-            return new string[] { "value1", "value2" };
         }
 
         // GET api/values/5
@@ -53,7 +63,7 @@ namespace PDFMCreator.Controllers
         [HttpPost]
         public void Post([FromBody]string value)
         {
-            
+
         }
 
         // PUT api/values/5
