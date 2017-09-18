@@ -31,6 +31,7 @@ namespace PDFMCreator.Controllers
         public IEnumerable<string> Get()
         {
             NewMethod();
+            _pdfprocessor.FillPdfFields();
             //return _pdfprocessor.GetPdfFields();
             return new string[] { "value1", "value2" };
         }

@@ -46,6 +46,8 @@ namespace PDFMCreator.Services
         public void FillPdfFields()
         {
             //string webRootPath = _hostingEnvironment.WebRootPath;
+            GetPdfFields();
+
             String src = _hostingEnvironment.ContentRootPath + "/Docs/BLGLegal Intake Form AcroForm.pdf";
             String dest = _hostingEnvironment.ContentRootPath + "/Docs/BLGLegal Intake Form AcroForm Filled.pdf"; ;
 
